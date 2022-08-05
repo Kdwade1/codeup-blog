@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/anime/create" method="post">
+    <div>
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title">
+    </div>
+    <br>
+    <div>
+        <label for="description">Body</label>
+        <textarea name="description" id="description" rows="4" cols="50"></textarea>
+
+    </div>
+    <br>
+    <div>
+        <h3>Does it suck?</h3>
+        <label for="sucks"><b>Yes</b></label>
+        <input type="radio" id="sucks" name="sucks" value="true">
+        <label for="bad"><b>No</b></label>
+        <input type="radio" id="bad" name="sucks" value="false">
+    </div>
+    <button type="submit">submit</button>
+</form>
+</body>
+</html>

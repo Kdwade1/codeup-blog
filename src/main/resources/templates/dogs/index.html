@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:each="dog: ${dogs}">
+    <h1 th:text="${dog.getName()}"></h1>
+    <p th:text="${dog.getBreed}"></p>
+
+    <ul>
+        <li th:each="toys: ${dog.toys}" th:text="${toy.getName}"></li>
+    </ul>
+
+</div>
+</body>
+</html>
