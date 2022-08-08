@@ -15,6 +15,9 @@ public class Dog {
 
     @Column (length =50, nullable = false)
     private String name;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name="dog_vets",joinColumns = {@JoinColumn(name="dog_id")}, inverseJoinColumns = {@JoinColumn(name="vet_id")})
+    private List<Vet>vets;
 
     public Dog(long id, String breed, String name, List<Toy> toys) {
         this.id = id;

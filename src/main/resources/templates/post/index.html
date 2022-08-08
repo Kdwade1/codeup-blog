@@ -9,6 +9,13 @@
     <p th:text="${post.id}" />
     <p th:text="${post.title}"></p>
     <p th:text="${post.body}"></p>
+    <ul>
+        <li th:each="tag:${post.tags}" th:text="${tag.name}">
+
+        </li>
+    </ul>
 </div>
+<h3>Here are the post with the funny Tag</h3>
+
 </body>
 </html>

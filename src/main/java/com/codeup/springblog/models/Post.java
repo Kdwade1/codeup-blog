@@ -3,6 +3,7 @@ package com.codeup.springblog.models;
 import com.codeup.springblog.repositories.PostRepository;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="blog")
@@ -19,6 +20,18 @@ public class Post {
     @ManyToOne
     @JoinColumn(name="user_id")
     private User user;
+
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
+    }
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name="post_tag", joinColumns = {@JoinColumn(name="post_id")},inverseJoinColumns = {@JoinColumn(name="tag_id")})
+    private List<Tag> tags;
 
     public Post(String title, String body, User user) {
         this.title = title;
