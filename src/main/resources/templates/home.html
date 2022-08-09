@@ -3,11 +3,11 @@
 <head>
 
     <meta charset="UTF-8">
-    <link th:fragment="navbar" href="partials/navbar.css">
+<!--    <link th:fragment="navbar" href="partials/navbar.css">-->
     <title>Title</title>
 </head>
 <body>
 <h1>Hello, <span th:text="${name}">World</span>!</h1>
-<div th:replace="fragment.html::fragment"></div>
+<div th:replace="partials/fragment.html::fragment"></div>
 </body>
 </html>

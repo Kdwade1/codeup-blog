@@ -11,7 +11,7 @@ public class User {
     private long id;
 
     @Column(nullable = false,length= 30)
-    private String userName;
+    private String username;
 
     @Column(nullable = false)
     private String email;
@@ -21,7 +21,7 @@ public class User {
 
     public User(long id, String userName, String email, String password, List<Post> posts) {
         this.id = id;
-        this.userName = userName;
+        this.username = userName;
         this.email = email;
         this.password = password;
         this.posts = posts;
@@ -35,12 +35,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
@@ -67,11 +67,17 @@ public class User {
         this.posts = posts;
     }
 
-    public User(String userName, String email, String password, List<Post> posts) {
-        this.userName = userName;
+    public User(String username, String email, String password, List<Post> posts) {
+        this.username = username;
         this.email = email;
         this.password = password;
         this.posts = posts;
+    }
+    public User(User copy){
+        this.id= copy.id;
+        this.username=copy.username;
+        this.email=copy.email;
+        this.password=copy.password;
     }
 
     public User() {

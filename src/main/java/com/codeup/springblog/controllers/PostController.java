@@ -13,6 +13,7 @@ import java.util.List;
 
 @Controller
 public class PostController {
+
     private  final PostRepository postDao;
     private final UserRepository userDao;
 
@@ -28,7 +29,7 @@ public class PostController {
     }
 
 
-    @GetMapping("/post/show/{id}")
+    @GetMapping("/posts/show/{id}")
     public String postId(@PathVariable long id, Model model) {
 //        ArrayList<Post> post = new ArrayList<>();
 //        post.add(new Post(1, "title", "body"));
@@ -37,21 +38,22 @@ public class PostController {
         return "post/show";
     }
 
-    @GetMapping("/post/create")
+    @GetMapping("/posts/create")
     public String showCreate(Model model){
         model.addAttribute("post",new Post());
         return "/post/create";
     }
 
-    @PostMapping("/post/create")
-    public String create(@ModelAttribute Post post) {
+    @PostMapping("/posts/create")
+    public String create(@ModelAttribute Post post, @RequestParam long id) {
+        post.setUser(userDao.getById(id));
      postDao.save(post);
         return "redirect:/posts";}
 
     @GetMapping("/posts/{id}/edit")
     public String editPost(Model model, @PathVariable long id){
         model.addAttribute("post",postDao.getById(id));
-        return "redirect:/posts";
+        return "post/create";
     }
 
 //    @GetMapping("/post/create")

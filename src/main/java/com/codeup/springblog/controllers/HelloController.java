@@ -1,11 +1,25 @@
 package com.codeup.springblog.controllers;
 
+import com.codeup.springblog.repositories.UserRepository;
+import com.codeup.springblog.services.EmailService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class HelloController {
+    private final EmailService emailService;
+    private UserRepository userDao;
+    public HelloController(EmailService emailService, UserRepository userDao) {
+        this.emailService = emailService;
+        this.userDao =userDao;
+    }
+
+    @GetMapping("/hello")
+    public String hello(Model model){
+       return "hello";
+    }
+
 //    @GetMapping("/hello")
 //    @ResponseBody
 //    public String hello(){return "<h1>Hello from Spring!</h1>";}
